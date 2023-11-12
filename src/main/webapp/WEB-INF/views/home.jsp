@@ -29,6 +29,13 @@
     <a href="/create" style="text-decoration-line: none">
         <button>Thêm Sinh Viên Mới</button>
     </a>
+    <br>
+    <form action="http://localhost:8080/search" method="get">
+
+        <input type="text" name="nameSearch">
+        <input type="submit" value="Tìm kiếm">
+    </form>
+
     <table>
         <thead>
         <tr>

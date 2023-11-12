@@ -51,4 +51,17 @@ public class StudentManager implements iStudentSevice<Student> {
     public List<Student> findAll() {
         return list;
     }
+    public List<Student> searchByName(String name){
+        List<Student> listSearch=new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getName().toLowerCase().contains(name.toLowerCase())){
+                listSearch.add(list.get(i));
+            }
+        }
+        if (!listSearch.isEmpty()){
+            return listSearch;
+        }else {
+            return null;
+        }
+    }
 }

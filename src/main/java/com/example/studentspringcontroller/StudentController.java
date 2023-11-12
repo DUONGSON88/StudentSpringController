@@ -46,10 +46,20 @@ public class StudentController {
         ModelAndView modelAndView=new ModelAndView("update");
         return modelAndView;
     }
-    @PostMapping("update&id={id}")
+    @PostMapping(value = "update&id={id}")
     public String update(Student student){
         studentManager.update(student.getId(),student);
         return "redirect:/home";
+    }
+    @GetMapping(value = "/search")
+    public ModelAndView search(@RequestParam String nameSearch){
+        if (nameSearch== null){
+            nameSearch="/home";
+        }
+        List<Student> students=studentManager.searchByName(nameSearch);
+        ModelAndView modelAndView=new ModelAndView("home");
+        modelAndView.addObject("list",students);
+        return modelAndView;
     }
 
 }
